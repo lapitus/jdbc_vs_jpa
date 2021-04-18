@@ -5,13 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
 public class Person {
 
+    @Id
+    @GeneratedValue
     private int Id;
+
     private String firstName;
     private String lastName;
     private String address;
@@ -24,6 +30,15 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    public Person(String firstName, String lastName, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+    }
+
+    public Person() {
     }
 }
 
